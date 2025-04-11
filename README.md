@@ -30,4 +30,8 @@ Para poder eliminar esta issue debemos crear una constante con el valor ```Nota 
 Para ello creamos lo siguiente ```private static final String NOTA_PARA = "Nota para"``` y sustituir donde estén los ```Nota para``` por nuestra constante
 
 ---
-# Issue de tipo Medium ()
+# Issue de tipo Medium (12)
+##### java:S106 (7)
+Para esta issue debemos de crear un objeto ```Logger()``` y reemplazarlo por los ```System.out.println()```
+
+##### 

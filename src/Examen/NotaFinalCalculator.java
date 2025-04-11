@@ -1,6 +1,8 @@
 package Examen;
 
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class NotaFinalCalculator {
 
@@ -9,16 +11,17 @@ public class NotaFinalCalculator {
 			"RA5", 0.20, "RA6", 0.20);
 
 	private static final String NOTA_PARA = "Nota para";
+	private static final Logger logger = Logger.getLogger(NotaFinalCalculator.class.getName());
 	
 	// Método principal: punto de entrada del programa
 	public static void main(String[] args) {
 		Map<String, Double> notasRA = leerNotasDesdeTeclado();
 
 		double notaFinal = calcularNotaFinal(notasRA);
-		System.out.println("Nota final de Entornos de Desarrollo: " + notaFinal);
+		logger.log(Level.INFO, "Nota final de Entornos de Desarrollo: {0}" , notaFinal);
 
 		boolean aprobado = apruebaTodosLasRAs(notasRA);
-		System.out.println("¿Ha aprobado todas las RAs?: " + (aprobado ? "Sí" : "No"));
+		logger.log(Level.INFO,"¿Ha aprobado todas las RAs?: {0}" , (aprobado ? "Sí" : "No"));
 
 		procesaCalificaciones(notasRA);
 		for (String ra : notasRA.keySet()) {
@@ -45,7 +48,7 @@ public class NotaFinalCalculator {
 
 					// Validación: nota fuera de rango
 					if (nota < 0 || nota > 10) {
-						System.err.println("Nota no válida para " + ra + ". Se usará 0.");
+						logger.log(Level.INFO, "Nota no válida para {0}" , ra + ". Se usará 0.");
 						nota = 0.0;
 					}
 
@@ -68,16 +71,16 @@ public class NotaFinalCalculator {
 		Scanner scanner = new Scanner(System.in);
 		Map<String, Double> notas = new HashMap<>();
 
-		System.out.println("Introduce las notas para cada RA (entre 0 y 10):");
+		logger.log(Level.INFO,"Introduce las notas para cada RA (entre 0 y 10):");
 
 		for (String ra : PESOS_RA.keySet()) {
-			System.out.print(ra + ": ");
+			logger.log(Level.INFO, ra , ": ");
 			try {
 				double nota = Double.parseDouble(scanner.nextLine());
 				notas.put(ra, nota);
 			} catch (NumberFormatException e) {
 				// Si la entrada no es válida, se registra como 0
-				System.out.println("Entrada no válida. Se usará 0 para " + ra);
+				logger.log(Level.INFO,"Entrada no válida. Se usará 0 para {0}" , ra);
 				notas.put(ra, 0.0);
 			}
 		}
@@ -107,7 +110,7 @@ public class NotaFinalCalculator {
 			resultado.append("No se proporcionaron notas.\n");
 		}
 
-		System.out.println(resultado.toString());
+		logger.log(Level.INFO,resultado.toString());
 	}
 
 	private static void aprobadoOsuspenso(StringBuilder resultado, String ra, double nota) {
@@ -177,7 +180,7 @@ public class NotaFinalCalculator {
 			break;
 		}
 
-		System.out.println(resultado);
+		logger.log(Level.INFO,resultado);
 	}
 
 	// Determina si el alumno ha aprobado todas las RAs
