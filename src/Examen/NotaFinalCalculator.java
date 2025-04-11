@@ -1,4 +1,4 @@
-package Examen;
+package examen;
 
 import java.util.*;
 import java.util.logging.Level;

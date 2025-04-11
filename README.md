@@ -32,6 +32,4 @@ Para ello creamos lo siguiente ```private static final String NOTA_PARA = "Nota 
 ---
 # Issue de tipo Medium (12)
 ##### java:S106 (7)
-Para esta issue debemos de crear un objeto ```Logger()``` y reemplazarlo por los ```System.out.println()```
-
-##### 
+Para esta issue debemos reemplazar los ```System.out.println()``` por un objecto ```Logger()```
