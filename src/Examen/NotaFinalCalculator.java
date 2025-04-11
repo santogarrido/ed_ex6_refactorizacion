@@ -8,6 +8,8 @@ public class NotaFinalCalculator {
 	private static final Map<String, Double> PESOS_RA = Map.of("RA1", 0.10, "RA2", 0.15, "RA3", 0.15, "RA4", 0.20,
 			"RA5", 0.20, "RA6", 0.20);
 
+	private static final String NOTA_PARA = "Nota para";
+	
 	// Método principal: punto de entrada del programa
 	public static void main(String[] args) {
 		Map<String, Double> notasRA = leerNotasDesdeTeclado();
@@ -94,8 +96,8 @@ public class NotaFinalCalculator {
 					if (nota >= 0) {
 						aprobadoOsuspenso(resultado, ra, nota);
 					} else {
-						resultado.append("Nota para ").append(ra).append(" es negativa. Error.\n");
-						resultado.append("Nota para ").append(ra).append(" es negativa. Error.\n");
+						resultado.append(NOTA_PARA).append(ra).append(" es negativa. Error.\n");
+						resultado.append(NOTA_PARA).append(ra).append(" es negativa. Error.\n");
 					}
 				} else {
 					resultado.append("No se encontró nota para ").append(ra).append(". Se asumirá 0.\n");
@@ -128,8 +130,8 @@ public class NotaFinalCalculator {
 				tipoSuspenso(resultado, ra, nota);
 			}
 		} else {
-			resultado.append("Nota para ").append(ra).append(" es mayor que 10. Error.\n");
-			resultado.append("Nota para ").append(ra).append(" es mayor que 10. Error.\n");
+			resultado.append(NOTA_PARA).append(ra).append(" es mayor que 10. Error.\n");
+			resultado.append(NOTA_PARA).append(ra).append(" es mayor que 10. Error.\n");
 		}
 	}
 

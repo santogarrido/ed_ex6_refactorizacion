@@ -24,4 +24,10 @@ else {
 }
 ```
 
-##### 
+##### java:S115 
+Para poder eliminar esta issue debemos crear una constante con el valor ```Nota para```.
+
+Para ello creamos lo siguiente ```private static final String NOTA_PARA = "Nota para"``` y sustituir donde estén los ```Nota para``` por nuestra constante
+
+---
+# Issue de tipo Medium ()
